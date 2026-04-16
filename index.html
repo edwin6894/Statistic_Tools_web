@@ -42,7 +42,6 @@
       z-index: 100;
     }
 
-    /* Logo area: name + tagline below */
     .logo-area {
       display: flex;
       flex-direction: column;
@@ -76,16 +75,10 @@
       white-space: nowrap;
     }
     @media (max-width: 600px) {
-      .main-logo {
-        font-size: 1.4rem;
-      }
-      .tagline-under {
-        font-size: 0.65rem;
-        white-space: normal;
-      }
+      .main-logo { font-size: 1.4rem; }
+      .tagline-under { font-size: 0.65rem; white-space: normal; }
     }
 
-    /* Right section: Options dropdown + Social Icons */
     .right-controls {
       display: flex;
       align-items: center;
@@ -93,7 +86,6 @@
       flex-wrap: wrap;
     }
 
-    /* Social Icons Container */
     .social-icons {
       display: flex;
       gap: 0.8rem;
@@ -118,7 +110,6 @@
       text-shadow: 0 0 8px rgba(180, 255, 100, 0.5);
     }
 
-    /* ===== DROPDOWN MENU (OPTIONS with hamburger icon) ===== */
     .options-dropdown {
       position: relative;
       display: inline-block;
@@ -195,7 +186,6 @@
       display: block;
     }
 
-    /* MAIN CONTAINER */
     .main-wrapper {
       max-width: 1300px;
       width: 100%;
@@ -208,7 +198,7 @@
       flex: 1;
     }
 
-    /* ========== GLASS CARD ========== */
+    /* GLASS CARD */
     .glass-card {
       background: rgba(20, 30, 25, 0.28);
       backdrop-filter: blur(14px) saturate(180%);
@@ -225,7 +215,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .glass-card::before {
       content: "";
       position: absolute;
@@ -240,20 +229,17 @@
       pointer-events: none;
       border-radius: 48px;
     }
-
     .glass-card:hover::before {
       transform: rotate(0deg) translate(5%, 2%);
       opacity: 0.65;
       background: radial-gradient(circle, rgba(200, 255, 120, 0.28) 0%, rgba(0, 0, 0, 0) 80%);
     }
-
     .glass-card:hover {
       transform: translateY(-8px) scale(1.01);
       box-shadow: 0 32px 55px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(180, 255, 100, 0.6) inset;
       border-color: rgba(180, 255, 100, 0.85);
       backdrop-filter: blur(18px) saturate(200%);
     }
-
     .software-title {
       font-size: 2.5rem;
       font-weight: 700;
@@ -264,7 +250,6 @@
       margin-bottom: 0.5rem;
       letter-spacing: -0.5px;
     }
-
     .version-badge {
       display: inline-block;
       background: rgba(0, 0, 0, 0.5);
@@ -276,9 +261,7 @@
       color: #ccff99;
       border: 1px solid rgba(180, 255, 100, 0.5);
       margin-bottom: 0.75rem;
-      transition: 0.2s;
     }
-
     .description-text {
       font-size: 1.05rem;
       line-height: 1.55;
@@ -295,8 +278,6 @@
       color: #ccff66;
       font-weight: 600;
     }
-
-    /* DOWNLOAD BUTTON - now an anchor link */
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -314,15 +295,12 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 200, 0.5) inset;
       text-decoration: none;
     }
-    .download-btn i {
-      font-size: 1.4rem;
-    }
+    .download-btn i { font-size: 1.4rem; }
     .download-btn:hover {
       background: #d4ff6e;
       transform: scale(1.03) translateY(-3px);
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4), 0 0 0 2px #f0ffc0 inset;
     }
-
     .installer-note {
       font-size: 0.85rem;
       margin-top: 1rem;
@@ -333,8 +311,6 @@
       padding: 0.25rem 1.2rem;
       border-radius: 40px;
     }
-
-    /* FOOTER SECTION */
     .footer-section {
       width: 100%;
       max-width: 900px;
@@ -357,10 +333,7 @@
       backdrop-filter: blur(4px);
       transition: 0.2s;
     }
-    .location-row i {
-      font-size: 0.9rem;
-      color: #ccff66;
-    }
+    .location-row i { font-size: 0.9rem; color: #ccff66; }
     .location-row:hover {
       background: rgba(0, 0, 0, 0.5);
       transform: translateY(-2px);
@@ -371,17 +344,10 @@
       line-height: 1.5;
       letter-spacing: 0.3px;
     }
-    .footer-credit a {
-      color: #b8ff3c;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .footer-credit a:hover {
-      color: #e0ffb0;
-      text-decoration: underline;
-    }
+    .footer-credit a { color: #b8ff3c; text-decoration: none; transition: 0.2s; }
+    .footer-credit a:hover { color: #e0ffb0; text-decoration: underline; }
 
-    /* MODAL FOR USER GUIDE */
+    /* MODAL STYLES - Two Windows Sliding with Scroll for Window 2 */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -402,21 +368,60 @@
       visibility: visible;
       opacity: 1;
     }
-    .modal-glass {
+    .modal-container {
+      position: relative;
+      width: 90%;
+      max-width: 700px;
+      min-height: 500px;
+      max-height: 85vh;
+    }
+    .modal-window {
       background: rgba(16, 24, 22, 0.85);
       backdrop-filter: blur(20px) saturate(180%);
       border-radius: 48px;
       border: 1px solid rgba(180, 255, 100, 0.6);
-      width: 90%;
-      max-width: 650px;
       padding: 2rem 2rem;
       box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(200, 255, 120, 0.3) inset;
-      transition: transform 0.25s ease;
-      animation: modalFadeIn 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transition: transform 0.35s ease, opacity 0.3s ease;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      max-height: 85vh;
+      overflow-y: auto;
     }
-    @keyframes modalFadeIn {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    /* Custom scrollbar for windows */
+    .modal-window::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-window::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+    .modal-window::-webkit-scrollbar-thumb {
+      background: #b8ff3c;
+      border-radius: 10px;
+    }
+    .modal-window.active-window {
+      position: relative;
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 2;
+    }
+    .modal-window.prev-window {
+      position: absolute;
+      opacity: 0;
+      transform: translateX(-30px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .modal-window.next-window {
+      position: absolute;
+      opacity: 0;
+      transform: translateX(30px);
+      pointer-events: none;
+      z-index: 1;
     }
     .modal-glass h2 {
       font-size: 1.8rem;
@@ -435,12 +440,8 @@
       text-align: left;
       margin-bottom: 1.5rem;
     }
-    .guide-text p {
-      margin-bottom: 0.8rem;
-    }
-    .guide-text strong {
-      color: #ccff66;
-    }
+    .guide-text p { margin-bottom: 0.8rem; }
+    .guide-text strong { color: #ccff66; }
     .guide-list {
       list-style: none;
       padding: 0;
@@ -461,6 +462,50 @@
       left: 0;
       font-weight: bold;
     }
+    .screenshot-placeholder {
+      background: rgba(0, 0, 0, 0.5);
+      border: 2px dashed rgba(180, 255, 100, 0.5);
+      border-radius: 20px;
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+      color: #bde5a0;
+      font-size: 0.85rem;
+    }
+    .screenshot-placeholder i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: #b8ff3c;
+    }
+    .modal-nav-btn {
+      background: rgba(180, 255, 100, 0.2);
+      border: 1px solid #b8ff3c;
+      color: #b8ff3c;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-nav-btn:hover {
+      background: #b8ff3c;
+      color: #0a1f0a;
+      transform: translateX(-3px);
+    }
+    .modal-nav-btn.next:hover { transform: translateX(3px); }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
     .close-modal-btn {
       background: #b8ff3c;
       border: none;
@@ -470,14 +515,11 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      margin-top: 0.5rem;
     }
     .close-modal-btn:hover {
       background: #d4ff6e;
       transform: scale(1.02) translateY(-2px);
     }
-
-    /* Review Modal specific styles */
     .review-form {
       display: flex;
       flex-direction: column;
@@ -503,24 +545,10 @@
       color: #eef5ff;
       font-size: 0.95rem;
       outline: none;
-      transition: 0.2s;
     }
     .form-group input:focus, .form-group textarea:focus {
       border-color: #b8ff3c;
       box-shadow: 0 0 8px rgba(180, 255, 100, 0.3);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .rating-section {
-      text-align: left;
-      margin: 0.5rem 0;
-    }
-    .rating-section h4 {
-      color: #ccff66;
-      margin-bottom: 0.6rem;
-      font-size: 1rem;
     }
     .stars {
       display: flex;
@@ -532,10 +560,7 @@
       color: #555;
       transition: 0.2s;
     }
-    .stars i.active, .stars i.hover {
-      color: #ffc107;
-      text-shadow: 0 0 5px #ffb700;
-    }
+    .stars i.active, .stars i.hover { color: #ffc107; text-shadow: 0 0 5px #ffb700; }
     .submit-review {
       background: #b8ff3c;
       border: none;
@@ -544,78 +569,38 @@
       font-weight: bold;
       font-size: 1rem;
       cursor: pointer;
-      margin-top: 0.5rem;
       transition: 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
     }
-    .submit-review:hover {
-      background: #d4ff6e;
-      transform: translateY(-2px);
-    }
-    .submit-review:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
+    .submit-review:hover { background: #d4ff6e; transform: translateY(-2px); }
+    .submit-review:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
     @media (max-width: 700px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .right-controls {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .glass-card {
-        padding: 1.5rem;
-      }
-      .description-text {
-        font-size: 0.95rem;
-      }
-      .modal-glass {
-        max-width: 95%;
-        padding: 1.5rem;
-      }
-      .social-icons {
-        padding: 0.3rem 0.8rem;
-      }
-      .social-icons a {
-        font-size: 1rem;
-      }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .right-controls { width: 100%; justify-content: space-between; }
+      .glass-card { padding: 1.5rem; }
+      .description-text { font-size: 0.95rem; }
+      .modal-container { max-width: 95%; max-height: 90vh; }
+      .modal-window { padding: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar: Logo + Options Dropdown + Social Icons -->
   <nav class="navbar">
     <div class="logo-area" id="homeLogoBtn">
       <span class="main-logo">Statistic_Tools</span>
       <span class="tagline-under">Your all in one statistical solutions</span>
     </div>
-    
     <div class="right-controls">
-      <!-- Social Media Icons (Instagram, LinkedIn, GitHub) -->
       <div class="social-icons">
-        <a href="https://www.instagram.com/justeddieee_xcv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/edwin-thomas-322936346/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/edwin6894?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
+        <a href="https://www.instagram.com/justeddieee_xcv" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/edwin-thomas-322936346/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/edwin6894?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
       </div>
-      
-      <!-- Options Dropdown (no social media inside) -->
       <div class="options-dropdown" id="optionsDropdown">
-        <button class="options-btn" id="optionsBtn">
-          <i class="fas fa-bars"></i> Options
-        </button>
+        <button class="options-btn" id="optionsBtn"><i class="fas fa-bars"></i> Options</button>
         <div class="options-content" id="optionsContent">
           <button id="aboutDevOption"><i class="fas fa-user-astronaut"></i> About The Developer</button>
           <button id="userGuideOption"><i class="fas fa-book-open"></i> User Guide</button>
@@ -635,104 +620,91 @@
         <p>The Major purpose of this software is to help High school/Degree/statistical researchers to easily perform any statistical operations that they can use in their projects or research reports.</p>
         <p>The Software is <span class="desc-highlight"><i class="fas fa-feather-alt"></i> Lightweight and free for non‑commercial use</span>.</p>
       </div>
-      <!-- Download button now links directly to the GitHub release -->
-      <a href="https://github.com/edwin6894/Statistic_Tools/releases/download/v1.0.1_Stable/Statistic_ToolsV1.Stable.zip" class="download-btn" id="downloadSoftwareBtn" download>
-        <i class="fas fa-download"></i> Download
-      </a>
+      <a href="https://github.com/edwin6894/Statistic_Tools/releases/download/v1.0.1_Stable/Statistic_ToolsV1.Stable.zip" class="download-btn" download><i class="fas fa-download"></i> Download</a>
       <div class="installer-note"><i class="fab fa-windows"></i> Windows | 64-bit installer</div>
     </div>
-
-    <!-- FOOTER SECTION -->
     <div class="footer-section">
-      <div class="location-row">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Korratty, Thrissur, India</span>
-      </div>
-      <div class="footer-credit">
-        Statistic_Tools — reliable statistical engine | <i class="far fa-copyright"></i> 2026 open analytics<br>
-        Developed using Prompt Engineering with Deepseek AI • Built with <i class="fab fa-html5"></i> HTML, <i class="fab fa-js"></i> JS & <i class="fab fa-css3-alt"></i> CSS
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL FOR USER GUIDE -->
-  <div id="guideModal" class="modal-overlay">
-    <div class="modal-glass">
-      <h2><i class="fas fa-book-open"></i> User Guide</h2>
-      <div class="guide-text">
-        <p>Upon Launching the software the user can see 3 Tabs at the menu bar:</p>
-        <ul class="guide-list">
-          <li><strong>OPERATIONS</strong> : Provides a sub-menu that contains all Statistical operations</li>
-          <li><strong>THEME</strong> : Allow the user to switch themes between dark/white</li>
-          <li><strong>ABOUT</strong> : A section that shows the Copyrights of the software and also About the creator</li>
-        </ul>
-        <p><strong>How to Use:</strong></p>
-        <ul class="guide-list">
-          <li>Choose your desired operations from the OPERATIONS tab enter the required details in the textfield / the field provided to enter the values and press ENTER button.</li>
-          <li>Upon typing in all values at once and pressing the ENTER key, a new CALCULATE Button appears , Click it to get your output answers.</li>
-          <li>Press the RESET Button to reset the software, and you can choose the next operation to perform</li>
-          <li>For Operations like GEOMETRIC MEAN (FREQUENCY DISTRIBUTION) the data will be displayed in a tabular format on the right-side of the software, a built-in EXPORT Button is provided that exports the data inside the table into .CSV File that the user can save in their PC.</li>
-       <li><strong>UPDATION PROCESS</strong>: Once a new update is released on the Github the user who uses the old version will get a update message dialog box showing the update version and the new changelog, press the UPDATE button to update the software to the newest version or REMIND ME LATER to install the update later. Once the update is installed kindly manually close the older version and you could see the new version's folder installed in the same directory where the old version is installed, so then you can remove the old files and keep the new version</li>
-        </ul>
-      </div>
-      <button class="close-modal-btn" id="closeModalBtn"><i class="fas fa-check"></i> Got it</button>
+      <div class="location-row"><i class="fas fa-map-marker-alt"></i> <span>Korratty, Thrissur, India</span></div>
+      <div class="footer-credit">Statistic_Tools — reliable statistical engine | <i class="far fa-copyright"></i> 2026 open analytics<br>Developed using Prompt Engineering with Deepseek AI • Built with <i class="fab fa-html5"></i> HTML, <i class="fab fa-js"></i> JS & <i class="fab fa-css3-alt"></i> CSS</div>
     </div>
   </div>
 
   <!-- REVIEW MODAL -->
   <div id="reviewModal" class="modal-overlay">
-    <div class="modal-glass">
+    <div class="modal-glass" style="background: rgba(16,24,22,0.85); backdrop-filter: blur(20px); border-radius: 48px; border:1px solid rgba(180,255,100,0.6); width:90%; max-width:550px; padding:2rem;">
       <h2><i class="fas fa-star"></i> Review / Suggestions</h2>
       <div class="review-form">
-        <div class="form-group">
-          <label><i class="fas fa-user"></i> User Name</label>
-          <input type="text" id="reviewName" placeholder="Enter your name">
-        </div>
-        <div class="form-group">
-          <label><i class="fas fa-envelope"></i> User Email</label>
-          <input type="email" id="reviewEmail" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label><i class="fas fa-comment-dots"></i> Your Review / Suggestion</label>
-          <textarea id="reviewText" placeholder="Share your feedback..."></textarea>
-        </div>
-        <div class="rating-section">
-          <h4><i class="fas fa-star"></i> Rate the Software</h4>
-          <div class="stars" id="starRating">
-            <i class="far fa-star" data-value="1"></i>
-            <i class="far fa-star" data-value="2"></i>
-            <i class="far fa-star" data-value="3"></i>
-            <i class="far fa-star" data-value="4"></i>
-            <i class="far fa-star" data-value="5"></i>
-          </div>
-        </div>
+        <div class="form-group"><label><i class="fas fa-user"></i> User Name</label><input type="text" id="reviewName" placeholder="Enter your name"></div>
+        <div class="form-group"><label><i class="fas fa-envelope"></i> User Email</label><input type="email" id="reviewEmail" placeholder="your@email.com"></div>
+        <div class="form-group"><label><i class="fas fa-comment-dots"></i> Your Review / Suggestion</label><textarea id="reviewText" placeholder="Share your feedback..."></textarea></div>
+        <div class="rating-section"><h4><i class="fas fa-star"></i> Rate the Software</h4><div class="stars" id="starRating"><i class="far fa-star" data-value="1"></i><i class="far fa-star" data-value="2"></i><i class="far fa-star" data-value="3"></i><i class="far fa-star" data-value="4"></i><i class="far fa-star" data-value="5"></i></div></div>
         <button class="submit-review" id="submitReviewBtn"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
       </div>
-      <button class="close-modal-btn" id="closeReviewBtn" style="margin-top: 1rem;"><i class="fas fa-times"></i> Close</button>
+      <button class="close-modal-btn" id="closeReviewBtn" style="margin-top:1rem;"><i class="fas fa-times"></i> Close</button>
+    </div>
+  </div>
+
+  <!-- USER GUIDE MODAL - Two Windows Sliding with Scroll for Window 2 -->
+  <div id="guideModal" class="modal-overlay">
+    <div class="modal-container">
+      <!-- Window 1: Original User Guide -->
+      <div id="guideWindow1" class="modal-window modal-glass active-window">
+        <h2><i class="fas fa-book-open"></i> User Guide</h2>
+        <div class="guide-text">
+          <p>Upon Launching the software the user can see 3 Tabs at the menu bar:</p>
+          <ul class="guide-list"><li><strong>OPERATIONS</strong> : Provides a sub-menu that contains all Statistical operations</li><li><strong>THEME</strong> : Allow the user to switch themes between dark/white</li><li><strong>ABOUT</strong> : A section that shows the Copyrights of the software and also About the creator</li></ul>
+          <p><strong>How to Use:</strong></p>
+          <ul class="guide-list"><li>Choose your desired operations from the OPERATIONS tab enter the required details in the textfield / the field provided to enter the values and press ENTER button.</li><li>Upon typing in all values at once and pressing the ENTER key, a new CALCULATE Button appears , Click it to get your output answers.</li><li>Press the RESET Button to reset the software, and you can choose the next operation to perform</li><li>For Operations like GEOMETRIC MEAN (FREQUENCY DISTRIBUTION) the data will be displayed in a tabular format on the right-side of the software, a built-in EXPORT Button is provided that exports the data inside the table into .CSV File that the user can save in their PC.</li><li><strong>UPDATION PROCESS</strong>: Once a new update is released on the Github the user who uses the old version will get a update message dialog box showing the update version and the new changelog, press the UPDATE button to update the software to the newest version or REMIND ME LATER to install the update later. Once the update is installed kindly manually close the older version and you could see the new version's folder installed in the same directory where the old version is installed, so then you can remove the old files and keep the new version</li></ul>
+        </div>
+        <div class="button-group">
+          <button class="close-modal-btn" id="closeModalBtn"><i class="fas fa-check"></i> Got it</button>
+          <button id="nextGuideBtn" class="modal-nav-btn next"><i class="fas fa-chevron-right"></i> Next: Installation Help</button>
+        </div>
+      </div>
+
+      <!-- Window 2: First-Time Installation Guide (with scroll enabled) -->
+      <div id="guideWindow2" class="modal-window modal-glass next-window">
+        <h2><i class="fas fa-shield-alt"></i> First-Time Installation</h2>
+        <div class="guide-text">
+          <p>Windows 11 has a feature called <strong>"Smart App Control"</strong> that blocks new apps.</p>
+          <p>Due to the lacking of Code Signing Certification the windows normally blocks newly developed apps, this is not because the app is not safe this is because the windows categorizes the software as unknown due to the absence of the certification. Code Signing Certification is a digital certificate issued by a Certificate Authority (CA) that validates the identity of a software publisher and ensures code integrity. By applying a digital signature to applications, scripts, or binaries, it guarantees the code has not been altered or tampered with since signing, preventing malicious modifications. The certification being a bit costly I cannot add it to my program as of now but soon will.</p>
+          <p><strong>How to Fix the Common Errors the first time installers face:</strong></p>
+          
+          <div class="screenshot-placeholder" id="screenshotPlaceholder1">
+  <img src="warning2.png" alt="Windows warning - OK button" style="max-width:100%; border-radius:16px;">
+</div>
+          <p>If an Error or warning box like this appears then just click on the <strong>'OK'</strong> Button and the software will launch, the user has to do this only once and the next time you try to launch the software it works without any errors.</p>
+          
+         <div class="screenshot-placeholder" id="screenshotPlaceholder2">
+  <img src="warning1.png" alt="Windows warning - More Info > Run anyway" style="max-width:100%; border-radius:16px;">
+</div>
+          <p>If an Error or warning box like this appears then click on <strong>'More Info' &gt; 'Run anyways'</strong>, here too the user has to do it only once.</p>
+          <p style="margin-top: 1rem; color: #ccff66; font-weight: bold;"><i class="fas fa-check-circle"></i> The software is completely safe and clean for your computer. The warning is simply issued due to the lack of certification!</p>
+        </div>
+        <div class="button-group">
+          <button id="prevGuideBtn" class="modal-nav-btn"><i class="fas fa-chevron-left"></i> Back to User Guide</button>
+          <button class="close-modal-btn" id="closeModalBtn2"><i class="fas fa-check"></i> Got it</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
     (function() {
-      // Home logo click - scroll to top
       const homeLogo = document.getElementById('homeLogoBtn');
-      if (homeLogo) {
-        homeLogo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      }
+      if(homeLogo) homeLogo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
       // Options Dropdown
       const optionsBtn = document.getElementById('optionsBtn');
       const optionsContent = document.getElementById('optionsContent');
-      if (optionsBtn && optionsContent) {
+      if(optionsBtn && optionsContent) {
         optionsBtn.addEventListener('click', (e) => { e.stopPropagation(); optionsContent.classList.toggle('show'); });
-        window.addEventListener('click', (event) => {
-          if (!optionsBtn.contains(event.target) && !optionsContent.contains(event.target)) optionsContent.classList.remove('show');
-        });
+        window.addEventListener('click', (event) => { if(!optionsBtn.contains(event.target) && !optionsContent.contains(event.target)) optionsContent.classList.remove('show'); });
       }
 
       // About Developer
       const aboutDevOption = document.getElementById('aboutDevOption');
-      if (aboutDevOption) {
+      if(aboutDevOption) {
         aboutDevOption.addEventListener('click', () => {
           document.body.innerHTML = '';
           document.head.innerHTML = '';
@@ -740,15 +712,39 @@
         });
       }
 
-      // User Guide Modal
+      // User Guide Modal with Sliding Windows
       const guideModal = document.getElementById('guideModal');
       const userGuideOption = document.getElementById('userGuideOption');
+      const window1 = document.getElementById('guideWindow1');
+      const window2 = document.getElementById('guideWindow2');
+      const nextBtn = document.getElementById('nextGuideBtn');
+      const prevBtn = document.getElementById('prevGuideBtn');
       const closeModalBtn = document.getElementById('closeModalBtn');
+      const closeModalBtn2 = document.getElementById('closeModalBtn2');
+
       function openGuideModal() { guideModal.classList.add('active'); }
       function closeGuideModal() { guideModal.classList.remove('active'); }
-      if (userGuideOption) userGuideOption.addEventListener('click', () => { optionsContent.classList.remove('show'); openGuideModal(); });
-      if (closeModalBtn) closeModalBtn.addEventListener('click', closeGuideModal);
-      guideModal.addEventListener('click', (e) => { if (e.target === guideModal) closeGuideModal(); });
+      
+      function showWindow(showFirst) {
+        if(showFirst) {
+          window1.classList.remove('next-window', 'prev-window');
+          window1.classList.add('active-window');
+          window2.classList.remove('active-window');
+          window2.classList.add('next-window');
+        } else {
+          window2.classList.remove('next-window', 'prev-window');
+          window2.classList.add('active-window');
+          window1.classList.remove('active-window');
+          window1.classList.add('prev-window');
+        }
+      }
+      
+      if(nextBtn) nextBtn.addEventListener('click', () => showWindow(false));
+      if(prevBtn) prevBtn.addEventListener('click', () => showWindow(true));
+      if(closeModalBtn) closeModalBtn.addEventListener('click', closeGuideModal);
+      if(closeModalBtn2) closeModalBtn2.addEventListener('click', closeGuideModal);
+      if(userGuideOption) userGuideOption.addEventListener('click', () => { optionsContent.classList.remove('show'); showWindow(true); openGuideModal(); });
+      guideModal.addEventListener('click', (e) => { if(e.target === guideModal) closeGuideModal(); });
 
       // Review Modal
       const reviewModal = document.getElementById('reviewModal');
@@ -756,197 +752,65 @@
       const closeReviewBtn = document.getElementById('closeReviewBtn');
       function openReviewModal() { reviewModal.classList.add('active'); }
       function closeReviewModal() { reviewModal.classList.remove('active'); }
-      if (reviewOption) reviewOption.addEventListener('click', () => { optionsContent.classList.remove('show'); openReviewModal(); });
-      if (closeReviewBtn) closeReviewBtn.addEventListener('click', closeReviewModal);
-      reviewModal.addEventListener('click', (e) => { if (e.target === reviewModal) closeReviewModal(); });
+      if(reviewOption) reviewOption.addEventListener('click', () => { optionsContent.classList.remove('show'); openReviewModal(); });
+      if(closeReviewBtn) closeReviewBtn.addEventListener('click', closeReviewModal);
+      reviewModal.addEventListener('click', (e) => { if(e.target === reviewModal) closeReviewModal(); });
 
-      // Star Rating Logic
+      // Star Rating
       let currentRating = 0;
       const stars = document.querySelectorAll('#starRating i');
       function updateStars(rating) {
-        stars.forEach((star, index) => {
-          if (index < rating) {
-            star.className = 'fas fa-star active';
-          } else {
-            star.className = 'far fa-star';
-          }
-        });
+        stars.forEach((star, idx) => { star.className = idx < rating ? 'fas fa-star active' : 'far fa-star'; });
         currentRating = rating;
       }
       stars.forEach(star => {
-        star.addEventListener('click', () => {
-          const value = parseInt(star.getAttribute('data-value'));
-          updateStars(value);
-        });
+        star.addEventListener('click', () => updateStars(parseInt(star.getAttribute('data-value'))));
         star.addEventListener('mouseenter', () => {
-          const value = parseInt(star.getAttribute('data-value'));
-          stars.forEach((s, idx) => {
-            if (idx < value) s.className = 'fas fa-star hover';
-            else s.className = 'far fa-star';
-          });
+          const val = parseInt(star.getAttribute('data-value'));
+          stars.forEach((s, idx) => { s.className = idx < val ? 'fas fa-star hover' : 'far fa-star'; });
         });
-        star.addEventListener('mouseleave', () => {
-          updateStars(currentRating);
-        });
+        star.addEventListener('mouseleave', () => updateStars(currentRating));
       });
 
-      // Submit Review - Send to email using FormSubmit (free service)
+      // Submit Review
       const submitBtn = document.getElementById('submitReviewBtn');
-      if (submitBtn) {
+      if(submitBtn) {
         submitBtn.addEventListener('click', async () => {
           const name = document.getElementById('reviewName').value.trim();
           const email = document.getElementById('reviewEmail').value.trim();
           const review = document.getElementById('reviewText').value.trim();
-          
-          if (!name || !email || !review) {
-            alert('Please fill all fields before submitting.');
-            return;
-          }
-          if (!email.includes('@') || !email.includes('.')) {
-            alert('Please enter a valid email address.');
-            return;
-          }
-          
+          if(!name || !email || !review) { alert('Please fill all fields before submitting.'); return; }
+          if(!email.includes('@') || !email.includes('.')) { alert('Please enter a valid email address.'); return; }
           const ratingText = currentRating > 0 ? `${currentRating} star${currentRating !== 1 ? 's' : ''}` : 'No rating';
-          
-          // Disable button to prevent multiple submissions
           submitBtn.disabled = true;
           submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
-          
           try {
             const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('rating', ratingText);
-            formData.append('message', review);
-            formData.append('_subject', `Statistic_Tools Feedback from ${name}`);
+            formData.append('name', name); formData.append('email', email); formData.append('rating', ratingText);
+            formData.append('message', review); formData.append('_subject', `Statistic_Tools Feedback from ${name}`);
             formData.append('_template', 'table');
-            
-            const response = await fetch('https://formsubmit.co/ajax/edwinchulliyil6894@gmail.com', {
-              method: 'POST',
-              body: formData
-            });
-            
-            if (response.ok) {
+            const response = await fetch('https://formsubmit.co/ajax/edwinchulliyil6894@gmail.com', { method: 'POST', body: formData });
+            if(response.ok) {
               alert('✅ Review submitted! Thank you for your feedback!');
-              document.getElementById('reviewName').value = '';
-              document.getElementById('reviewEmail').value = '';
-              document.getElementById('reviewText').value = '';
-              updateStars(0);
-              closeReviewModal();
-            } else {
-              throw new Error('Submission failed');
-            }
-          } catch (error) {
-            console.error('Submission error:', error);
-            alert('⚠️ Unable to send feedback at the moment. Please try again later or contact us directly via email.');
-          } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Feedback';
-          }
+              document.getElementById('reviewName').value = ''; document.getElementById('reviewEmail').value = '';
+              document.getElementById('reviewText').value = ''; updateStars(0); closeReviewModal();
+            } else throw new Error('Submission failed');
+          } catch(error) { alert('⚠️ Unable to send feedback at the moment. Please try again later.'); }
+          finally { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Feedback'; }
         });
       }
 
-      // Developer Page Builder (with social icons included)
+      // Developer Page Builder
       function createDeveloperPage() {
         document.title = "Edwin Thomas | Developer Portfolio | Statistic_Tools";
         const style = document.createElement('style');
-        style.textContent = `
-          * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Inter', sans-serif; }
-          body { background: #0a0c10; color: #eef5ff; min-height: 100vh; padding: 2rem; }
-          .dev-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-          .dev-navbar { width: 100%; background: rgba(8,12,18,0.75); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(180,255,100,0.4); padding: 0.8rem 2rem; margin-bottom: 2rem; border-radius: 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-          .dev-logo-area { display: flex; flex-direction: column; align-items: flex-start; cursor: pointer; transition: transform 0.2s; gap: 4px; }
-          .dev-logo-area:hover { transform: scale(1.02); filter: drop-shadow(0 0 5px rgba(180,255,100,0.4)); }
-          .dev-main-logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg,#ffffff,#c0ff70); background-clip: text; -webkit-background-clip: text; color: transparent; }
-          .dev-tagline { font-size: 0.75rem; color: #bde5a0; background: rgba(0,0,0,0.4); padding: 0.2rem 0.6rem; border-radius: 30px; }
-          .dev-social-icons { display: flex; gap: 0.8rem; align-items: center; background: rgba(20,30,25,0.4); padding: 0.4rem 1rem; border-radius: 60px; backdrop-filter: blur(4px); border: 1px solid rgba(180,255,100,0.3); }
-          .dev-social-icons a { color: #e0f0e0; font-size: 1.3rem; transition: all 0.25s ease; }
-          .dev-social-icons a:hover { color: #b8ff3c; transform: translateY(-3px) scale(1.1); }
-          .main-content { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
-          .name-large { font-size: 4rem; font-weight: 800; background: linear-gradient(135deg,#ffffff,#c0ff70); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 0.5rem; }
-          .role { font-size: 1.4rem; color: #ccffaa; margin: 1rem 0; border-left: 3px solid #b8ff3c; padding-left: 1rem; }
-          .description { font-size: 1rem; line-height: 1.6; color: #cddcec; margin-bottom: 1rem; }
-          .abstract-section { background: rgba(25,35,30,0.5); backdrop-filter: blur(8px); border-radius: 32px; padding: 1.8rem; border: 1px solid rgba(180,255,100,0.3); margin-bottom: 2rem; }
-          .abstract-title { font-size: 1.8rem; color: #ccff66; }
-          .founded { font-size: 0.8rem; color: #bde5a0; margin: 0.5rem 0; }
-          .bio-text { line-height: 1.6; color: #e0edf5; }
-          .skill-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
-          .skill-tag { background: rgba(180,255,100,0.15); padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.8rem; border: 1px solid rgba(180,255,100,0.4); }
-          .license-section { background: rgba(25,35,30,0.5); backdrop-filter: blur(8px); border-radius: 32px; padding: 1.8rem; border: 1px solid rgba(180,255,100,0.3); margin-top: 1rem; }
-          .license-section h3 { font-size: 1.6rem; color: #ccff66; margin-bottom: 1rem; border-left: 3px solid #b8ff3c; padding-left: 1rem; }
-          .license-text { font-family: monospace; font-size: 0.85rem; line-height: 1.6; color: #c0d0e0; white-space: pre-line; }
-          .license-text strong { color: #b8ff3c; }
-          @media (max-width:768px){ .name-large{font-size:2.8rem;} .dev-navbar{flex-direction:column; align-items:flex-start;} }
-        `;
+        style.textContent = `*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI','Inter',sans-serif}body{background:#0a0c10;color:#eef5ff;min-height:100vh;padding:2rem}.dev-container{max-width:1200px;margin:0 auto;padding:2rem}.dev-navbar{width:100%;background:rgba(8,12,18,0.75);backdrop-filter:blur(16px);border-bottom:1px solid rgba(180,255,100,0.4);padding:0.8rem 2rem;margin-bottom:2rem;border-radius:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}.dev-logo-area{display:flex;flex-direction:column;align-items:flex-start;cursor:pointer;gap:4px}.dev-logo-area:hover{transform:scale(1.02)}.dev-main-logo{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#ffffff,#c0ff70);background-clip:text;-webkit-background-clip:text;color:transparent}.dev-tagline{font-size:0.75rem;color:#bde5a0;background:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;border-radius:30px}.dev-social-icons{display:flex;gap:0.8rem;background:rgba(20,30,25,0.4);padding:0.4rem 1rem;border-radius:60px}.dev-social-icons a{color:#e0f0e0;font-size:1.3rem;transition:0.25s}.dev-social-icons a:hover{color:#b8ff3c;transform:translateY(-3px)}.main-content{display:flex;flex-direction:column;gap:2rem;margin-top:2rem}.name-large{font-size:4rem;font-weight:800;background:linear-gradient(135deg,#ffffff,#c0ff70);background-clip:text;-webkit-background-clip:text;color:transparent}.role{font-size:1.4rem;color:#ccffaa;margin:1rem 0;border-left:3px solid #b8ff3c;padding-left:1rem}.description{font-size:1rem;line-height:1.6;color:#cddcec;margin-bottom:1rem}.abstract-section,.license-section{background:rgba(25,35,30,0.5);backdrop-filter:blur(8px);border-radius:32px;padding:1.8rem;border:1px solid rgba(180,255,100,0.3);margin-bottom:2rem}.abstract-title{font-size:1.8rem;color:#ccff66}.founded{font-size:0.8rem;color:#bde5a0;margin:0.5rem 0}.bio-text{line-height:1.6;color:#e0edf5}.skill-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1rem}.skill-tag{background:rgba(180,255,100,0.15);padding:0.3rem 1rem;border-radius:30px;font-size:0.8rem;border:1px solid rgba(180,255,100,0.4)}.license-section h3{font-size:1.6rem;color:#ccff66;margin-bottom:1rem;border-left:3px solid #b8ff3c;padding-left:1rem}.license-text{font-family:monospace;font-size:0.85rem;line-height:1.6;color:#c0d0e0;white-space:pre-line}@media(max-width:768px){.name-large{font-size:2.8rem}}`;
         document.head.appendChild(style);
-        
         const container = document.createElement('div');
         container.className = 'dev-container';
-        container.innerHTML = `
-          <div class="dev-navbar">
-            <div class="dev-logo-area" id="devHomeBtn">
-              <span class="dev-main-logo">Statistic_Tools</span>
-              <span class="dev-tagline">Your all in one statistical solutions</span>
-            </div>
-            <div class="dev-social-icons">
-              <a href="https://www.instagram.com/justeddieee_xcv" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/edwin-thomas-322936346/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://github.com/edwin6894?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <div class="main-content">
-            <div>
-              <div class="name-large">Edwin Thomas</div>
-              <div class="role"><i class="fas fa-code"></i> Software Developer & UI/UX Enthusiast</div>
-              <div class="description"><i class="fas fa-heart"></i> A passionate developer committed to blending robust backend logic with intuitive interfaces. Currently pursuing Integrated Masters in Computer Applications.</div>
-            </div>
-            <div class="abstract-section">
-              <div class="abstract-title"><i class="fas fa-file-alt"></i> ABSTRACT</div>
-              <div class="founded"><i class="fas fa-calendar-alt"></i> FOUNDED · 2025</div>
-              <div class="bio-text">Hi there, my name is <strong>Edwin Thomas</strong>, I am currently a computer degree student doing Integrated Masters of Computer Applications in De Paul Institute of Science and Technology, Angamaly, Kerala. I am a tech enthusiast interested in developing best software solutions. Skilled in C/C++, C#, Python, Java, HTML, Prompt engineering, WIX, DBMS. Based in Kerala, raised in Dubai.</div>
-              <div class="skill-tags">
-                <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C/C++</span>
-                <span class="skill-tag"><i class="fas fa-hashtag"></i> C#</span>
-                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-                <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-                <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
-                <span class="skill-tag"><i class="fas fa-robot"></i> Prompt Eng</span>
-                <span class="skill-tag"><i class="fas fa-globe"></i> WIX</span>
-                <span class="skill-tag"><i class="fas fa-database"></i> DBMS</span>
-              </div>
-            </div>
-            <div class="license-section">
-              <h3><i class="fas fa-gavel"></i> LICENSE</h3>
-              <div class="license-text">
-STATISTIC_TOOLSV1 - All Rights Reserved
-Copyright © 2026 EDWIN THOMAS
-
-This software is free to USE but is NOT open source.
-
-You are permitted to:
-✓ Download and use the software for educational purposes
-✓ Share the original, unmodified installer with others
-
-You are NOT permitted to:
-✗ Copy, modify, or alter the source code
-✗ Decompile or reverse engineer the software
-✗ Distribute modified versions of the software
-✗ Use any part of the code in your own projects
-✗ Claim this software as your own work
-
-For special permissions or inquiries:
-Contact: edwinchulliyil6894@gmail.com
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
-              </div>
-            </div>
-          </div>
-        `;
+        container.innerHTML = `<div class="dev-navbar"><div class="dev-logo-area" id="devHomeBtn"><span class="dev-main-logo">Statistic_Tools</span><span class="dev-tagline">Your all in one statistical solutions</span></div><div class="dev-social-icons"><a href="https://www.instagram.com/justeddieee_xcv" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/edwin-thomas-322936346/" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/edwin6894?tab=repositories" target="_blank"><i class="fab fa-github"></i></a></div></div><div class="main-content"><div><div class="name-large">Edwin Thomas</div><div class="role"><i class="fas fa-code"></i> Software Developer & UI/UX Enthusiast</div><div class="description"><i class="fas fa-heart"></i> A passionate developer committed to blending robust backend logic with intuitive interfaces. Currently pursuing Integrated Masters in Computer Applications.</div></div><div class="abstract-section"><div class="abstract-title"><i class="fas fa-file-alt"></i> ABSTRACT</div><div class="founded"><i class="fas fa-calendar-alt"></i> FOUNDED · 2025</div><div class="bio-text">Hi there, my name is <strong>Edwin Thomas</strong>, I am currently a computer degree student doing Integrated Masters of Computer Applications in De Paul Institute of Science and Technology, Angamaly, Kerala. I am a tech enthusiast interested in developing best software solutions. Skilled in C/C++, C#, Python, Java, HTML, Prompt engineering, WIX, DBMS. Based in Kerala, raised in Dubai.</div><div class="skill-tags"><span class="skill-tag"><i class="fab fa-cuttlefish"></i> C/C++</span><span class="skill-tag"><i class="fas fa-hashtag"></i> C#</span><span class="skill-tag"><i class="fab fa-python"></i> Python</span><span class="skill-tag"><i class="fab fa-java"></i> Java</span><span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span><span class="skill-tag"><i class="fas fa-robot"></i> Prompt Eng</span><span class="skill-tag"><i class="fas fa-globe"></i> WIX</span><span class="skill-tag"><i class="fas fa-database"></i> DBMS</span></div></div><div class="license-section"><h3><i class="fas fa-gavel"></i> LICENSE</h3><div class="license-text">STATISTIC_TOOLSV1 - All Rights Reserved\nCopyright © 2026 EDWIN THOMAS\n\nThis software is free to USE but is NOT open source.\n\nYou are permitted to:\n✓ Download and use the software for educational purposes\n✓ Share the original, unmodified installer with others\n\nYou are NOT permitted to:\n✗ Copy, modify, or alter the source code\n✗ Decompile or reverse engineer the software\n✗ Distribute modified versions of the software\n✗ Use any part of the code in your own projects\n✗ Claim this software as your own work\n\nFor special permissions or inquiries:\nContact: edwinchulliyil6894@gmail.com\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.</div></div></div>`;
         document.body.appendChild(container);
-        
-        const devHomeBtn = document.getElementById('devHomeBtn');
-        if (devHomeBtn) devHomeBtn.addEventListener('click', () => window.location.reload());
+        document.getElementById('devHomeBtn')?.addEventListener('click', () => window.location.reload());
       }
     })();
   </script>
