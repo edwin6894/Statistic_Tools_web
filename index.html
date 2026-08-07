@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistic_Tools Web | Statistical Calculators</title>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- SheetJS for Excel Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- Chart.js for Graphs -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== TOP NAVIGATION ===== -->
+<nav class="navbar" id="navbar">
+    <div class="logo-area" onclick="goHome()">
+        <span class="main-logo"><i class="fas fa-calculator"></i> Statistic_Tools</span>
+        <span class="tagline-under">Simple · Fast · Reliable</span>
+    </div>
+    <div class="right-controls">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/justeddieee_xcv" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/edwin-thomas-322936346/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/edwin6894?tab=repositories" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- ===== SIDEBAR + MAIN CONTENT ===== -->
+    <div class="app-container">
+
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-nav">
+
+                <!-- ===== MEAN GROUP ===== -->
+                <div class="sidebar-group">
+                    <button class="sidebar-group-btn" onclick="toggleGroup('meanGroup')">
+                        <i class="fas fa-calculator"></i> Mean <i class="fas fa-chevron-down group-arrow"></i>
+                    </button>
+                    <div class="sidebar-group-items" id="meanGroup">
+                        <button class="sidebar-btn" data-section="mean"><i class="fas fa-circle"></i> Simple Mean</button>
+                        <button class="sidebar-btn" data-section="geometric"><i class="fas fa-circle"></i> Geometric Mean</button>
+                        <button class="sidebar-btn" data-section="harmonic"><i class="fas fa-circle"></i> Harmonic Mean</button>
+                        <button class="sidebar-btn" data-section="weighted"><i class="fas fa-circle"></i> Weighted Mean</button>
+                        <button class="sidebar-btn" data-section="meanfd"><i class="fas fa-circle"></i> Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="geometricfd"><i class="fas fa-circle"></i> Geometric Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="harmonicfd"><i class="fas fa-circle"></i> Harmonic Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="weightedfd"><i class="fas fa-circle"></i> Weighted Mean (Frequency Distribution)</button>
+                    </div>
+                </div>
+
+                <!-- ===== MEDIAN GROUP ===== -->
+                <div class="sidebar-group">
+                    <button class="sidebar-group-btn" onclick="toggleGroup('medianGroup')">
+                        <i class="fas fa-sort-amount-up"></i> Median <i class="fas fa-chevron-down group-arrow"></i>
+                    </button>
+                    <div class="sidebar-group-items" id="medianGroup">
+                        <button class="sidebar-btn" data-section="median"><i class="fas fa-circle"></i> Simple Median</button>
+                        <button class="sidebar-btn" data-section="mediandiscrete"><i class="fas fa-circle"></i> Median (Discrete Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="mediangrouped"><i class="fas fa-circle"></i> Median (Grouped Data)</button>
+                    </div>
+                </div>
+
+                <!-- ===== MODE GROUP ===== -->
+                <div class="sidebar-group">
+                    <button class="sidebar-group-btn" onclick="toggleGroup('modeGroup')">
+                        <i class="fas fa-chart-bar"></i> Mode <i class="fas fa-chevron-down group-arrow"></i>
+                    </button>
+                    <div class="sidebar-group-items" id="modeGroup">
+                        <button class="sidebar-btn" data-section="mode"><i class="fas fa-circle"></i> Simple Mode</button>
+                        <button class="sidebar-btn" data-section="modediscrete"><i class="fas fa-circle"></i> Mode (Discrete Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="modegrouped"><i class="fas fa-circle"></i> Mode (Grouped Data)</button>
+                    </div>
+                </div>
+                <!-- ===== GRAPHS GROUP ===== -->
+<div class="sidebar-group">
+    <button class="sidebar-group-btn" onclick="toggleGroup('graphsGroup')">
+        <i class="fas fa-chart-pie"></i> Graphs <i class="fas fa-chevron-down group-arrow"></i>
+    </button>
+    <div class="sidebar-group-items" id="graphsGroup">
+        <button class="sidebar-btn" data-section="graphs" onclick="showSection('graphs')">
+            <i class="fas fa-circle"></i> Create Graph
+        </button>
+    </div>
+</div>
+
+                <div class="sidebar-divider"></div>
+
+                <!-- ===== OTHER PAGES ===== -->
+                <div class="sidebar-group">
+                    <button class="sidebar-btn" data-section="about"><i class="fas fa-user-astronaut"></i> About</button>
+                    <button class="sidebar-btn" data-section="guide"><i class="fas fa-book-open"></i> Guide</button>
+                    <button class="sidebar-btn" data-section="review"><i class="fas fa-star"></i> Review</button>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+
+            <!-- ===== HOME SECTION ===== -->
+            <section id="section-home" class="section active">
+                <div class="glass-card home-card">
+                    <div class="home-badge"><i class="fas fa-globe"></i> Calculation & Generation Web App</div>
+                    <h1 class="home-title"></i> Statistic_Tools <span class="home-title-green">Web</span></h1>
+                    <p class="home-subtitle">Simple · Fast · Reliable</p>
+                    <div class="home-grid">
+                        <div class="home-stat">
+                            <span class="home-stat-number">12+</span>
+                            <span class="home-stat-label">Calculators</span>
+                        </div>
+                        <div class="home-stat">
+                            <span class="home-stat-number">⚡</span>
+                            <span class="home-stat-label">Instant Results</span>
+                        </div>
+                        <div class="home-stat">
+                            <span class="home-stat-number">🌿</span>
+                            <span class="home-stat-label">Glass UI</span>
+                        </div>
+                    </div>
+                    <p class="home-description">
+                        <span class="desc-highlight">Statistic_Tools Web</span> is a
+                        <strong>web-based</strong> statistical utility developed by <strong>Edwin Thomas</strong>.
+                    </p>
+                    <p class="home-description">
+                        This tool offers the support to perform almost every statistical operation within a single platform
+                        with a beautiful <span class="desc-highlight">Glass UI</span> that anyone can use.
+                        Developed specially for <span class="desc-highlight">School/University students</span> To aid them in their class Projects and Assignments
+                    </p>
+                    <div class="home-cta">
+
+                        <button class="btn-secondary" onclick="showSection('guide')">
+                            <i class="fas fa-book-open"></i> User Guide
+                        </button>
+                    </div>
+                    <div class="home-footer">
+                        <span><i class="far fa-copyright"></i> 2026 Edwin Thomas</span>
+                        <span class="home-footer-dot">•</span>
+                        <span>Built using HTML / CSS / JS x DeepSeek</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== MEAN CALCULATOR ===== -->
+            <section id="section-mean" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-calculator"></i></div>
+                        <div>
+                            <h2 class="calc-title">Simple Mean</h2>
+                            <p class="calc-subtitle">Arithmetic Mean for simple data</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Enter numbers</label>
+                            <input type="text" id="meanInput" class="glass-input" placeholder="e.g., 12 45 67 23 89" />
+                            <span class="input-hint">Separate with spaces or commas</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateMean()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Mean
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('mean')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="meanResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Mean = <span id="meanOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="meanMeta"></p>
+                        </div>
+                        <div id="meanError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== GEOMETRIC MEAN ===== -->
+            <section id="section-geometric" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <h2 class="calc-title">Geometric Mean</h2>
+                            <p class="calc-subtitle">All values must be positive</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Enter numbers</label>
+                            <input type="text" id="geometricInput" class="glass-input" placeholder="e.g., 2 4 8 16" />
+                            <span class="input-hint">All values must be positive</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateGeometric()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate GM
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('geometric')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="geometricResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">GM = <span id="geometricOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="geometricMeta"></p>
+                        </div>
+                        <div id="geometricError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== HARMONIC MEAN ===== -->
+            <section id="section-harmonic" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-weight"></i></div>
+                        <div>
+                            <h2 class="calc-title">Harmonic Mean</h2>
+                            <p class="calc-subtitle">All values must be positive</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Enter numbers</label>
+                            <input type="text" id="harmonicInput" class="glass-input" placeholder="e.g., 2 4 8 16" />
+                            <span class="input-hint">All values must be positive</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateHarmonic()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate HM
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('harmonic')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="harmonicResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">HM = <span id="harmonicOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="harmonicMeta"></p>
+                        </div>
+                        <div id="harmonicError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== WEIGHTED MEAN ===== -->
+            <section id="section-weighted" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-scale-balanced"></i></div>
+                        <div>
+                            <h2 class="calc-title">Weighted Mean</h2>
+                            <p class="calc-subtitle">Values with weights</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Values (X)</label>
+                            <input type="text" id="weightedValuesInput" class="glass-input" placeholder="e.g., 10 20 30 40" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Weights (W)</label>
+                            <input type="text" id="weightedWeightsInput" class="glass-input" placeholder="e.g., 1 2 3 4" />
+                            <span class="input-hint">Same number of values and weights</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateWeighted()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate WM
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('weighted')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="weightedResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">WM = <span id="weightedOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="weightedMeta"></p>
+                        </div>
+                        <div id="weightedError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== MEAN (FREQUENCY DISTRIBUTION) ===== -->
+            <section id="section-meanfd" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-table"></i></div>
+                        <div>
+                            <h2 class="calc-title">Mean (Frequency Distribution)</h2>
+                            <p class="calc-subtitle">Class Midpoints · Frequencies</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Class Midpoints (X)</label>
+                            <input type="text" id="meanfdMidpointsInput" class="glass-input" placeholder="e.g., 10 20 30 40 50" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="meanfdFrequenciesInput" class="glass-input" placeholder="e.g., 5 8 12 6 4" />
+                            <span class="input-hint">Same number of midpoints and frequencies</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateMeanFD()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Mean
+                            </button>
+                            <button class="btn-excel" onclick="exportToExcel('meanfd')">
+                                <i class="fas fa-file-excel"></i> Save to Excel
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('meanfd')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="meanfdResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Mean = <span id="meanfdOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="meanfdMeta"></p>
+                        </div>
+                        <div id="meanfdError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== GEOMETRIC MEAN (FREQUENCY DISTRIBUTION) ===== -->
+            <section id="section-geometricfd" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-table"></i></div>
+                        <div>
+                            <h2 class="calc-title">Geometric Mean (Frequency Distribution)</h2>
+                            <p class="calc-subtitle">All values must be positive</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Class Midpoints (X)</label>
+                            <input type="text" id="geometricfdMidpointsInput" class="glass-input" placeholder="e.g., 10 20 30 40 50" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="geometricfdFrequenciesInput" class="glass-input" placeholder="e.g., 5 8 12 6 4" />
+                            <span class="input-hint">All values must be positive</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateGeometricFD()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate GM
+                            </button>
+                            <button class="btn-excel" onclick="exportToExcel('geometricfd')">
+                                <i class="fas fa-file-excel"></i> Save to Excel
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('geometricfd')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="geometricfdResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">GM = <span id="geometricfdOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="geometricfdMeta"></p>
+                        </div>
+                        <div id="geometricfdError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== HARMONIC MEAN (FREQUENCY DISTRIBUTION) ===== -->
+            <section id="section-harmonicfd" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-table"></i></div>
+                        <div>
+                            <h2 class="calc-title">Harmonic Mean (Frequency Distribution)</h2>
+                            <p class="calc-subtitle">All values must be positive</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Class Midpoints (X)</label>
+                            <input type="text" id="harmonicfdMidpointsInput" class="glass-input" placeholder="e.g., 10 20 30 40 50" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="harmonicfdFrequenciesInput" class="glass-input" placeholder="e.g., 5 8 12 6 4" />
+                            <span class="input-hint">All values must be positive</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateHarmonicFD()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate HM
+                            </button>
+                            <button class="btn-excel" onclick="exportToExcel('harmonicfd')">
+                                <i class="fas fa-file-excel"></i> Save to Excel
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('harmonicfd')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="harmonicfdResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">HM = <span id="harmonicfdOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="harmonicfdMeta"></p>
+                        </div>
+                        <div id="harmonicfdError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== WEIGHTED MEAN (FREQUENCY DISTRIBUTION) ===== -->
+            <section id="section-weightedfd" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-table"></i></div>
+                        <div>
+                            <h2 class="calc-title">Weighted Mean (Frequency Distribution)</h2>
+                            <p class="calc-subtitle">Class Midpoints · Weights</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Class Midpoints (X)</label>
+                            <input type="text" id="weightedfdMidpointsInput" class="glass-input" placeholder="e.g., 10 20 30 40 50" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Weights (W)</label>
+                            <input type="text" id="weightedfdWeightsInput" class="glass-input" placeholder="e.g., 1 2 3 4 5" />
+                            <span class="input-hint">Same number of midpoints and weights</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateWeightedFD()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate WM
+                            </button>
+                            <button class="btn-excel" onclick="exportToExcel('weightedfd')">
+                                <i class="fas fa-file-excel"></i> Save to Excel
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('weightedfd')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="weightedfdResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">WM = <span id="weightedfdOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="weightedfdMeta"></p>
+                        </div>
+                        <div id="weightedfdError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SIMPLE MEDIAN ===== -->
+            <section id="section-median" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-sort-amount-up"></i></div>
+                        <div>
+                            <h2 class="calc-title">Simple Median</h2>
+                            <p class="calc-subtitle">Middle value when data is sorted</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Enter numbers</label>
+                            <input type="text" id="medianInput" class="glass-input" placeholder="e.g., 12 45 67 23 89" />
+                            <span class="input-hint">Separate with spaces or commas</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateMedian()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Median
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('median')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="medianResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Median = <span id="medianOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="medianMeta"></p>
+                        </div>
+                        <div id="medianError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== MEDIAN (DISCRETE FREQUENCY DISTRIBUTION) ===== -->
+            <section id="section-mediandiscrete" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-sort-amount-up"></i></div>
+                        <div>
+                            <h2 class="calc-title">Median (Discrete Frequency Distribution)</h2>
+                            <p class="calc-subtitle">Values with frequencies</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Values (X)</label>
+                            <input type="text" id="mediandiscreteValuesInput" class="glass-input" placeholder="e.g., 10 20 30 40" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="mediandiscreteFreqInput" class="glass-input" placeholder="e.g., 5 8 12 6" />
+                            <span class="input-hint">Same number of values and frequencies</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateMedianDiscrete()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Median
+                            </button>
+                            <button class="btn-excel" onclick="exportToExcel('mediandiscrete')">
+                                <i class="fas fa-file-excel"></i> Save to Excel
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('mediandiscrete')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="mediandiscreteResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Median = <span id="mediandiscreteOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="mediandiscreteMeta"></p>
+                        </div>
+                        <div id="mediandiscreteError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== MEDIAN (GROUPED DATA) ===== -->
+            <section id="section-mediangrouped" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-sort-amount-up"></i></div>
+                        <div>
+                            <h2 class="calc-title">Median (Grouped Data)</h2>
+                            <p class="calc-subtitle">Lower limits · Frequencies · Class width</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Lower Limits</label>
+                            <input type="text" id="mediangroupedLimitsInput" class="glass-input" placeholder="e.g., 10 20 30 40" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="mediangroupedFreqInput" class="glass-input" placeholder="e.g., 5 8 12 6" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Class Width (h)</label>
+                            <input type="text" id="mediangroupedWidthInput" class="glass-input" placeholder="e.g., 10" />
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateMedianGrouped()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Median
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('mediangrouped')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="mediangroupedResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Median = <span id="mediangroupedOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="mediangroupedMeta"></p>
+                        </div>
+                        <div id="mediangroupedError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SIMPLE MODE ===== -->
+            <section id="section-mode" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-chart-bar"></i></div>
+                        <div>
+                            <h2 class="calc-title">Simple Mode</h2>
+                            <p class="calc-subtitle">Most frequently occurring value</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Enter numbers</label>
+                            <input type="text" id="modeInput" class="glass-input" placeholder="e.g., 10 20 30 20 40 20" />
+                            <span class="input-hint">Separate with spaces or commas</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateMode()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Mode
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('mode')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="modeResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Mode = <span id="modeOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="modeMeta"></p>
+                        </div>
+                        <div id="modeError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== MODE (DISCRETE FREQUENCY DISTRIBUTION) ===== -->
+            <section id="section-modediscrete" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-chart-bar"></i></div>
+                        <div>
+                            <h2 class="calc-title">Mode (Discrete Frequency Distribution)</h2>
+                            <p class="calc-subtitle">Values with frequencies</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Values (X)</label>
+                            <input type="text" id="modediscreteValuesInput" class="glass-input" placeholder="e.g., 10 20 30 40" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="modediscreteFreqInput" class="glass-input" placeholder="e.g., 5 8 12 6" />
+                            <span class="input-hint">Same number of values and frequencies</span>
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateModeDiscrete()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Mode
+                            </button>
+                            <button class="btn-excel" onclick="exportToExcel('modediscrete')">
+                                <i class="fas fa-file-excel"></i> Save to Excel
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('modediscrete')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="modediscreteResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Mode = <span id="modediscreteOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="modediscreteMeta"></p>
+                        </div>
+                        <div id="modediscreteError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== MODE (GROUPED DATA) ===== -->
+            <section id="section-modegrouped" class="section">
+                <div class="glass-card calc-card">
+                    <div class="calc-header">
+                        <div class="calc-icon"><i class="fas fa-chart-bar"></i></div>
+                        <div>
+                            <h2 class="calc-title">Mode (Grouped Data)</h2>
+                            <p class="calc-subtitle">Lower limits · Frequencies · Class width</p>
+                        </div>
+                    </div>
+                    <div class="calc-body">
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Lower Limits</label>
+                            <input type="text" id="modegroupedLimitsInput" class="glass-input" placeholder="e.g., 10 20 30 40" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Frequencies (f)</label>
+                            <input type="text" id="modegroupedFreqInput" class="glass-input" placeholder="e.g., 5 8 12 6" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-edit"></i> Class Width (h)</label>
+                            <input type="text" id="modegroupedWidthInput" class="glass-input" placeholder="e.g., 10" />
+                        </div>
+                        <div class="calc-actions">
+                            <button class="btn-calculate" onclick="calculateModeGrouped()">
+                                <i class="fas fa-wand-magic-sparkles"></i> Calculate Mode
+                            </button>
+                            <button class="btn-reset" onclick="resetCalculator('modegrouped')">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                        <div id="modegroupedResult" class="result-box" style="display:none;">
+                            <p class="result-label"><i class="fas fa-check-circle"></i> Result</p>
+                            <p class="result-value">Mode = <span id="modegroupedOutput" class="result-highlight"></span></p>
+                            <p class="result-meta" id="modegroupedMeta"></p>
+                        </div>
+                        <div id="modegroupedError" class="error-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- ===== GRAPHS SECTION ===== -->
+<section id="section-graphs" class="section">
+    <div class="glass-card graph-card">
+        <div class="calc-header">
+            <div class="calc-icon"><i class="fas fa-chart-pie"></i></div>
+            <div>
+                <h2 class="calc-title">Create Graph</h2>
+                <p class="calc-subtitle">Visualize your data with beautiful charts</p>
+            </div>
+        </div>
+
+        <div class="graph-body">
+            <!-- Data Input -->
+            <div class="graph-input-row">
+                <div class="form-group graph-input-group">
+                    <label><i class="fas fa-tags"></i> Labels</label>
+                    <input type="text" id="graphLabels" class="glass-input" placeholder="e.g., A, B, C, D" />
+                    <span class="input-hint">Separate with commas</span>
+                </div>
+                <div class="form-group graph-input-group">
+                    <label><i class="fas fa-chart-simple"></i> Dataset 1</label>
+                    <input type="text" id="graphValues" class="glass-input" placeholder="e.g., 10, 20, 30, 40" />
+                    <span class="input-hint">Separate with commas</span>
+                </div>
+            </div>
+
+            <!-- Double Bar Input (hidden by default) -->
+            <div class="graph-input-row" id="doubleBarRow" style="display:none;">
+                <div class="form-group graph-input-group">
+                    <label><i class="fas fa-chart-simple"></i> Dataset 2</label>
+                    <input type="text" id="graphValues2" class="glass-input" placeholder="e.g., 15, 25, 35, 45" />
+                    <span class="input-hint">For double bar chart only</span>
+                </div>
+                <div class="form-group graph-input-group">
+                    <label><i class="fas fa-tag"></i> Dataset 2 Label</label>
+                    <input type="text" id="graphLabel2" class="glass-input" placeholder="e.g., Series 2" value="Dataset 2" />
+                </div>
+            </div>
+
+            <!-- Chart Type Selector -->
+            <div class="chart-type-selector">
+                <label><i class="fas fa-sliders-h"></i> Chart Type</label>
+                <div class="chart-type-buttons">
+                    <button class="chart-type-btn active" data-type="bar" onclick="selectChartType('bar')">
+                        <i class="fas fa-chart-bar"></i> Bar
+                    </button>
+                    <button class="chart-type-btn" data-type="doublebar" onclick="selectChartType('doublebar')">
+                        <i class="fas fa-chart-bar"></i> Double Bar
+                    </button>
+                    <button class="chart-type-btn" data-type="pie" onclick="selectChartType('pie')">
+                        <i class="fas fa-chart-pie"></i> Pie
+                    </button>
+                    <button class="chart-type-btn" data-type="line" onclick="selectChartType('line')">
+                        <i class="fas fa-chart-line"></i> Line
+                    </button>
+                    <button class="chart-type-btn" data-type="boxplot" onclick="selectChartType('boxplot')">
+                        <i class="fas fa-box"></i> Box Plot
+                    </button>
+                    <button class="chart-type-btn" data-type="polarArea" onclick="selectChartType('polarArea')">
+                        <i class="fas fa-chart-area"></i> Polar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="calc-actions graph-actions">
+                <button class="btn-chart" onclick="generateGraph()">
+                    <i class="fas fa-play"></i> Generate Graph
+                </button>
+                <button class="btn-excel" onclick="exportGraph()">
+                    <i class="fas fa-image"></i> Save as Image
+                </button>
+                <button class="btn-reset" onclick="resetGraph()">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+            </div>
+
+            <!-- Graph Display -->
+            <div id="graphDisplay" class="graph-display" style="display:none;">
+                <div class="chart-wrapper">
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+                <div class="graph-stats" id="graphStats"></div>
+            </div>
+
+            <div id="graphError" class="error-box" style="display:none;"></div>
+        </div>
+    </div>
+</section>
+
+            <!-- ===== USER GUIDE ===== -->
+            <section id="section-guide" class="section">
+                <div class="glass-card guide-card">
+                    <h2 class="guide-title"><i class="fas fa-book-open"></i> User Guide</h2>
+                    <div class="guide-block">
+                        <h3><i class="fas fa-bars"></i> Navigation</h3>
+                        <ul class="guide-list">
+                            <li><strong>Left Sidebar</strong> : Grouped menus for all calculators</li>
+                            <li><strong>Mean</strong> : Simple, Geometric, Harmonic, Weighted, plus Frequency Distribution versions</li>
+                            <li><strong>Median</strong> : Simple, Discrete Frequency Distribution, Grouped Data</li>
+                            <li><strong>Mode</strong> : Simple, Discrete Frequency Distribution, Grouped Data</li>
+                            <li><strong>Graphs</strong>: Generation of Graphs such as Bar, Double Bar, Pie chart, Line , Box plot, Polar</li>
+                        </ul>
+                    </div>
+                    <div class="guide-block">
+                        <h3><i class="fas fa-play"></i> How to Use</h3>
+                        <ul class="guide-list">
+                            <li>Select a calculator from the <strong>left sidebar</strong></li>
+                            <li>Enter your data using <strong>spaces or commas</strong></li>
+                            <li>Press <strong>Calculate</strong> or press <strong>Enter</strong></li>
+                            <li>For Frequency Distribution calculators, click <strong>Save to Excel</strong> to export data</li>
+                            <li>Use <strong>Reset</strong> to clear the current calculator</li>
+                            <li>Switching calculators <strong>automatically resets</strong> previous values</li>
+                            <li>For Graphs: Press  <strong>Generate</strong> to create graphs within the web page itself and use <strong>save as option</strong> to save the graph to your desired device</strong> </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== ABOUT ===== -->
+            <section id="section-about" class="section">
+                <div class="glass-card about-card">
+                    <h2 class="about-title"><i class="fas fa-user-astronaut"></i> About</h2>
+                    <div class="about-content">
+                        <h1 class="about-name">Edwin Thomas</h1>
+                        <div class="about-role"><i class="fas fa-code"></i> Software / Web Developer &amp; UI/UX Enthusiast</div>
+                        <p class="about-bio">
+                            I'm Edwin Thomas, a passionate software developer from Kerala, India, currently pursuing my Integrated Masters in Computer Applications at De Paul Institute of Science and Technology, Angamaly. I'm deeply fascinated by how technology can simplify complex problems and make life easier for people. My journey into development started with a simple curiosity — I wanted to build things that matter. Over time, that curiosity evolved into a relentless drive to create tools that are not just functional, but also beautiful and intuitive.
+
+I take pride in blending robust backend logic with clean, user-centric design. My work on Stati_Tools — a complete statistical software suite — reflects this philosophy. From desktop to web, I've built features like real-time calculators, Glass UI, dark/light themes, Excel exports, and interactive graphs. I'm skilled in C#, Python, Java, HTML/CSS, JavaScript, and Prompt Engineering, and I'm constantly exploring new ways to leverage AI in development.
+
+Beyond coding, I believe technology should be accessible to everyone. My goal is to build educational tools that empower students, researchers, and professionals to understand complex data with ease. With a strong foundation in both development and design, I'm excited to continue creating solutions that make a real difference.
+                        </p>
+                        <div class="about-skills">
+                            <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C/C++</span>
+                            <span class="skill-tag"><i class="fas fa-hashtag"></i> C#</span>
+                            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                            <span class="skill-tag"><i class="fab fa-html5"></i> HTML</span>
+                            <span class="skill-tag"><i class="fas fa-robot"></i> Prompt Engineering & Generative AI</span>
+                            <span class="skill-tag"><i class="fas fa-globe"></i> WIX</span>
+                            <span class="skill-tag"><i class="fas fa-database"></i> DBMS</span>
+                            <span class="skill-tag"><i class="fab fa-js"></i>JAVASCRIPT</span>
+                            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS </span>
+                        </div>
+                    </div>
+                    <div class="license-box">
+                        <h3><i class="fas fa-gavel"></i> License</h3>
+                        <div class="license-text">
+                            <strong>STATISTIC_TOOLS</strong> - All Rights Reserved<br>
+                            Copyright &copy; 2026 EDWIN THOMAS<br><br>
+                            This Web-App is Developed by using HTML/CSS/JS with DeepSeek AI Assistence.
+                            This Web-App is free to USE but is NOT open source.<br><br>
+                            Contact: edwinchulliyil6894@gmail.com
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== REVIEW ===== -->
+            <section id="section-review" class="section">
+                <div class="glass-card review-card">
+                    <h2 class="review-title"><i class="fas fa-star"></i> Review / Suggestions</h2>
+                    <p class="review-subtitle">Help improve Stati_Tools Web by sharing your feedback!</p>
+                    <div class="review-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> User Name</label>
+                            <input type="text" id="reviewName" class="glass-input" placeholder="Enter your name" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> User Email</label>
+                            <input type="email" id="reviewEmail" class="glass-input" placeholder="your@email.com" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment-dots"></i> Your Review / Suggestion</label>
+                            <textarea id="reviewText" class="glass-input" rows="4" placeholder="Share your feedback..."></textarea>
+                        </div>
+                        <div class="rating-section">
+                            <h4><i class="fas fa-star"></i> Rate the Software</h4>
+                            <div class="stars" id="starRating">
+                                <i class="far fa-star" data-value="1"></i>
+                                <i class="far fa-star" data-value="2"></i>
+                                <i class="far fa-star" data-value="3"></i>
+                                <i class="far fa-star" data-value="4"></i>
+                                <i class="far fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        <button class="btn-submit-review" onclick="submitReview()">
+                            <i class="fas fa-paper-plane"></i> Submit Feedback
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-location"><i class="fas fa-map-marker-alt"></i> Korratty, Thrissur, India</div>
+            <div class="footer-credit">
+                Statistic_Tools — reliable statistical engine | <i class="far fa-copyright"></i> 2026 Edwin Thomas
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="operations.js"></script>
+
+</body>
+</html>
