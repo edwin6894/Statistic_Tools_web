@@ -1,0 +1,17 @@
+STATISTIC_TOOLS - All Rights Reserved
+Copyright © 2026 EDWIN THOMAS
+
+This Web Application is free to USE but is NOT open source.
+
+You are permitted to:
+✓ Use the Application for educational purposes
+✓ Share the original, unmodified Site with others
+
+You are NOT permitted to:
+✗ Copy, modify, or alter the source code
+✗ Decompile or reverse engineer the Application or any of its files
+✗ Distribute modified versions of this Application
+✗ Use any part of the code in your own projects
+✗ Claim this software as your own work
+
+For permissions, contact: edwinchulliyil6894@gmail.com
