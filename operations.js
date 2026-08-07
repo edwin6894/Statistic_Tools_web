@@ -586,17 +586,14 @@ function showToast(message, type = 'info') {
 }
 // ===== THEME TOGGLE =====
 function toggleTheme() {
-    const body = document.body;
-    const toggleIcon = document.querySelector('#themeToggle i');
-    
-    body.classList.toggle('light-mode');
-    
-    if (body.classList.contains('light-mode')) {
-        toggleIcon.className = 'fas fa-sun';
-        localStorage.setItem('theme', 'light');
+    document.body.classList.toggle('light-mode');
+    const icon = document.querySelector('#themeToggle i');
+    if (document.body.classList.contains('light-mode')) {
+        icon.className = 'fas fa-sun';
+        icon.style.color = '#f0c060';
     } else {
-        toggleIcon.className = 'fas fa-moon';
-        localStorage.setItem('theme', 'dark');
+        icon.className = 'fas fa-moon';
+        icon.style.color = '';
     }
 }
 
