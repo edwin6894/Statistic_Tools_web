@@ -1020,3 +1020,46 @@ function showToast(message, type = 'info') {
         setTimeout(() => toast.remove(), 400);
     }, 3000);
 }
+// ===== MOUSE INTERACTIVE DYNAMIC BACKGROUND ENGINE =====
+(function initInteractiveBackground() {
+    let mouseX = 0, mouseY = 0;
+    let targetX = 0, targetY = 0;
+    let rawCursorX = window.innerWidth / 2;
+    let rawCursorY = window.innerHeight / 2;
+
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        // Normalized coordinates (-1 to 1)
+        targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+        targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+        
+        rawCursorX = e.clientX;
+        rawCursorY = e.clientY;
+    });
+
+    // Handle touch movement for mobile devices
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+            targetX = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+            targetY = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+            rawCursorX = e.touches[0].clientX;
+            rawCursorY = e.touches[0].clientY;
+        }
+    });
+
+    // Physics animation loop using Lerp (Linear Interpolation) for butter-smooth movement
+    function animateBg() {
+        mouseX += (targetX - mouseX) * 0.04;
+        mouseY += (targetY - mouseY) * 0.04;
+
+        // Set CSS variables for parallax and light tracking
+        document.documentElement.style.setProperty('--mouse-x', mouseX.toFixed(4));
+        document.documentElement.style.setProperty('--mouse-y', mouseY.toFixed(4));
+        document.documentElement.style.setProperty('--cursor-x', `${rawCursorX}px`);
+        document.documentElement.style.setProperty('--cursor-y', `${rawCursorY}px`);
+
+        requestAnimationFrame(animateBg);
+    }
+
+    animateBg();
+})();
