@@ -20,11 +20,39 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- ===== GLOW ORBS ===== -->
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+<div class="glow-orb glow-orb-3"></div>
+
+<!-- ===== FLOATING PARTICLES ===== -->
+<div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
 
   <!-- ===== TOP NAVIGATION ===== -->
 <nav class="navbar" id="navbar">
     <div class="logo-area" onclick="goHome()">
-        <span class="main-logo"><i class="fas fa-calculator"></i> Statistic_Tools</span>
+        <span class="main-logo">Statistic_Tools</span>
         <span class="tagline-under">Simple · Fast · Reliable</span>
     </div>
     <div class="right-controls">
@@ -52,14 +80,14 @@
                         <i class="fas fa-calculator"></i> Mean <i class="fas fa-chevron-down group-arrow"></i>
                     </button>
                     <div class="sidebar-group-items" id="meanGroup">
-                        <button class="sidebar-btn" data-section="mean"><i class="fas fa-circle"></i> Simple Mean</button>
-                        <button class="sidebar-btn" data-section="geometric"><i class="fas fa-circle"></i> Geometric Mean</button>
-                        <button class="sidebar-btn" data-section="harmonic"><i class="fas fa-circle"></i> Harmonic Mean</button>
-                        <button class="sidebar-btn" data-section="weighted"><i class="fas fa-circle"></i> Weighted Mean</button>
-                        <button class="sidebar-btn" data-section="meanfd"><i class="fas fa-circle"></i> Mean (Frequency Distribution)</button>
-                        <button class="sidebar-btn" data-section="geometricfd"><i class="fas fa-circle"></i> Geometric Mean (Frequency Distribution)</button>
-                        <button class="sidebar-btn" data-section="harmonicfd"><i class="fas fa-circle"></i> Harmonic Mean (Frequency Distribution)</button>
-                        <button class="sidebar-btn" data-section="weightedfd"><i class="fas fa-circle"></i> Weighted Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="mean"> Simple Mean</button>
+                        <button class="sidebar-btn" data-section="geometric">Geometric Mean</button>
+                        <button class="sidebar-btn" data-section="harmonic">Harmonic Mean</button>
+                        <button class="sidebar-btn" data-section="weighted"> Weighted Mean</button>
+                        <button class="sidebar-btn" data-section="meanfd">Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="geometricfd">Geometric Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="harmonicfd">Harmonic Mean (Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="weightedfd">Weighted Mean (Frequency Distribution)</button>
                     </div>
                 </div>
 
@@ -69,9 +97,9 @@
                         <i class="fas fa-sort-amount-up"></i> Median <i class="fas fa-chevron-down group-arrow"></i>
                     </button>
                     <div class="sidebar-group-items" id="medianGroup">
-                        <button class="sidebar-btn" data-section="median"><i class="fas fa-circle"></i> Simple Median</button>
-                        <button class="sidebar-btn" data-section="mediandiscrete"><i class="fas fa-circle"></i> Median (Discrete Frequency Distribution)</button>
-                        <button class="sidebar-btn" data-section="mediangrouped"><i class="fas fa-circle"></i> Median (Grouped Data)</button>
+                        <button class="sidebar-btn" data-section="median">Simple Median</button>
+                        <button class="sidebar-btn" data-section="mediandiscrete">Median (Discrete Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="mediangrouped">Median (Grouped Data)</button>
                     </div>
                 </div>
 
@@ -81,9 +109,9 @@
                         <i class="fas fa-chart-bar"></i> Mode <i class="fas fa-chevron-down group-arrow"></i>
                     </button>
                     <div class="sidebar-group-items" id="modeGroup">
-                        <button class="sidebar-btn" data-section="mode"><i class="fas fa-circle"></i> Simple Mode</button>
-                        <button class="sidebar-btn" data-section="modediscrete"><i class="fas fa-circle"></i> Mode (Discrete Frequency Distribution)</button>
-                        <button class="sidebar-btn" data-section="modegrouped"><i class="fas fa-circle"></i> Mode (Grouped Data)</button>
+                        <button class="sidebar-btn" data-section="mode">Simple Mode</button>
+                        <button class="sidebar-btn" data-section="modediscrete">Mode (Discrete Frequency Distribution)</button>
+                        <button class="sidebar-btn" data-section="modegrouped">Mode (Grouped Data)</button>
                     </div>
                 </div>
                 <!-- ===== GRAPHS GROUP ===== -->
@@ -113,48 +141,51 @@
         <!-- ===== MAIN CONTENT ===== -->
         <main class="main-content">
 
-            <!-- ===== HOME SECTION ===== -->
-            <section id="section-home" class="section active">
-                <div class="glass-card home-card">
-                    <div class="home-badge"><i class="fas fa-globe"></i> Calculation & Generation Web App</div>
-                    <h1 class="home-title"></i> Statistic_Tools <span class="home-title-green">Web</span></h1>
-                    <p class="home-subtitle">Simple · Fast · Reliable</p>
-                    <div class="home-grid">
-                        <div class="home-stat">
-                            <span class="home-stat-number">12+</span>
-                            <span class="home-stat-label">Calculators</span>
-                        </div>
-                        <div class="home-stat">
-                            <span class="home-stat-number">⚡</span>
-                            <span class="home-stat-label">Instant Results</span>
-                        </div>
-                        <div class="home-stat">
-                            <span class="home-stat-number">🌿</span>
-                            <span class="home-stat-label">Glass UI</span>
-                        </div>
-                    </div>
-                    <p class="home-description">
-                        <span class="desc-highlight">Statistic_Tools Web</span> is a
-                        <strong>web-based</strong> statistical utility developed by <strong>Edwin Thomas</strong>.
-                    </p>
-                    <p class="home-description">
-                        This tool offers the support to perform almost every statistical operation within a single platform
-                        with a beautiful <span class="desc-highlight">Glass UI</span> that anyone can use.
-                        Developed specially for <span class="desc-highlight">School/University students</span> To aid them in their class Projects and Assignments
-                    </p>
-                    <div class="home-cta">
-
-                        <button class="btn-secondary" onclick="showSection('guide')">
-                            <i class="fas fa-book-open"></i> User Guide
-                        </button>
-                    </div>
-                    <div class="home-footer">
-                        <span><i class="far fa-copyright"></i> 2026 Edwin Thomas</span>
-                        <span class="home-footer-dot">•</span>
-                        <span>Built using HTML / CSS / JS x DeepSeek</span>
-                    </div>
+          <!-- ===== HOME SECTION ===== -->
+<section id="section-home" class="section active">
+    <!-- No glass-card wrapper! -->
+    <div class="home-container">
+        <div class="home-badge"><i class="fas fa-globe"></i> Calculation & Generation Web App</div>
+        <h1 class="home-title">Statistic_Tools <span class="home-title-green">Web</span></h1>
+        <p class="home-subtitle">Simple · Fast · Reliable</p>
+        <div class="home-grid">
+            <div class="home-stat">
+                <span class="home-stat-number">12+</span>
+                <span class="home-stat-label">Operations</span>
+            </div>
+            <div class="home-stat">
+                <span class="home-stat-number"><i class="fas fa-bolt"></i></span>
+                <span class="home-stat-label">Instant Results</span>
                 </div>
-            </section>
+                <div class="home-stat">
+                    <span class="home-stat-number"><i class="fas fa-save"></i></span>
+                    <span class="home-stat-label">Save &amp; Export</span>
+                </div>
+        </div>
+        <p class="home-description">
+            <span class="desc-highlight">Statistic_Tools Web</span> is a
+            <strong>web-based</strong> statistical utility developed by <strong>Edwin Thomas</strong>.
+        </p>
+        <p class="home-description">
+            This tool offers the support to perform almost every statistical operation within a single platform
+            with a beautiful <span class="desc-highlight">Glass UI</span> that anyone can use.
+            Developed specially for <span class="desc-highlight">School/University students</span> To aid them in their class Projects and Assignments.
+        </p>
+        <div class="home-cta">
+            <button class="btn-primary" onclick="showSection('mean')">
+                <i class="fas fa-calculator"></i> Start Calculating
+            </button>
+            <button class="btn-secondary" onclick="showSection('guide')">
+                <i class="fas fa-book-open"></i> User Guide
+            </button>
+        </div>
+        <div class="home-footer">
+            <span><i class="far fa-copyright"></i> 2026 Edwin Thomas</span>
+            <span class="home-footer-dot">•</span>
+            <span>Built using HTML / CSS / JS x DeepSeek</span>
+        </div>
+    </div>
+</section>
 
             <!-- ===== MEAN CALCULATOR ===== -->
             <section id="section-mean" class="section">
