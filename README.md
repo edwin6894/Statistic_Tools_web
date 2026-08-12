@@ -3,7 +3,7 @@ currently I am Pursing my degree in Integrated Masters of Computer Applications 
 ----------------------------------------------------------------------------
 Statistic Tools Web App is a all-in one platform where you can effortlessly perform various statistical functions and generate graphs that you can use in your 
 school/university assignments or project researches.
-This web app is completely done using HTML , CSS , JS and used DeepSeek to Vibe code and design me the GUI and Functions
+This web app is completely done using HTML , CSS , JS and used DeepSeek and Gemini PRO to Vibe code and design me the GUI and Functions
 This software provides all Major Statistical operations(12+ operations .. soon will add more) along with Graph and diagram generation. 
 I developed this especially for School and University students to assist them in doing their class Economics/math projects.
 
