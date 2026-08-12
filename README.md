@@ -7,7 +7,20 @@ This web app is completely done using HTML , CSS , JS and used DeepSeek to Vibe 
 This software provides all Major Statistical operations(12+ operations .. soon will add more) along with Graph and diagram generation. 
 I developed this especially for School and University students to assist them in doing their class Economics/math projects.
 
+Modules Used:
+---------------
+1. SheetJS: For generation and exporting of excel sheets (available in operations where frequency distribution is needed).
+2. ChartJS: For generation and exporting of graphs and diagrams.
+3. FontAwesome and Google Fonts .
+4. Appwrite Cloud: For user review system (Backend).
+
 ⚠️ Please go through the User Guide Section in the Statistic Tools Web app to get extensive instructions on how to use the app ⚠️
+
+NEW UPDATES! (12-Aug-2026)
+----------------------
+1. More functions added : Quartiles and Percentiles, Dispersions , Correlation and Regressions , Skewness and Kurtosis.
+2. More Graphs added: Histogram, Scatter plot, Polygon.
+3. Fixed operations-side bar problems for Mobiles/Tablets.
 
 <img width="1827" height="919" alt="Screenshot 2026-08-08 151820" src="https://github.com/user-attachments/assets/91014bae-4d7f-4ab6-bfa9-ca805e0332d0" />
 
